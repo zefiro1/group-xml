@@ -20,8 +20,30 @@
         <gid>4</gid>
     </group>
     <group>
+        <name>adm</name>
+        <gid>4</gid>
+        <users>
+             <user>syslog</user>
+        </users>
+    </group>
+    <group>
+        <name>adm</name>
+        <gid>4</gid>
+        <users>
+             <user>syslog</user>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>tty</name>
         <gid>5</gid>
+    </group>
+    <group>
+        <name>tty</name>
+        <gid>5</gid>
+        <users>
+             <user>syslog</user>
+        </users>
     </group>
     <group>
         <name>disk</name>
@@ -60,6 +82,13 @@
         <gid>20</gid>
     </group>
     <group>
+        <name>dialout</name>
+        <gid>20</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>fax</name>
         <gid>21</gid>
     </group>
@@ -72,8 +101,22 @@
         <gid>24</gid>
     </group>
     <group>
+        <name>cdrom</name>
+        <gid>24</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>floppy</name>
         <gid>25</gid>
+    </group>
+    <group>
+        <name>floppy</name>
+        <gid>25</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
     </group>
     <group>
         <name>tape</name>
@@ -84,12 +127,33 @@
         <gid>27</gid>
     </group>
     <group>
+        <name>sudo</name>
+        <gid>27</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>audio</name>
         <gid>29</gid>
     </group>
     <group>
+        <name>audio</name>
+        <gid>29</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>dip</name>
         <gid>30</gid>
+    </group>
+    <group>
+        <name>dip</name>
+        <gid>30</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
     </group>
     <group>
         <name>www-data</name>
@@ -132,6 +196,13 @@
         <gid>44</gid>
     </group>
     <group>
+        <name>video</name>
+        <gid>44</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>sasl</name>
         <gid>45</gid>
     </group>
@@ -140,6 +211,13 @@
         <gid>46</gid>
     </group>
     <group>
+        <name>plugdev</name>
+        <gid>46</gid>
+        <users>
+             <user>zefiro</user>
+        </users>
+    </group>
+    <group>
         <name>staff</name>
         <gid>50</gid>
     </group>
@@ -224,237 +302,18 @@
         <gid>117</gid>
     </group>
     <group>
-        <name>lxd</name>
-        <gid>118</gid>
-    </group>
-    <group>
-        <name>zefiro</name>
-        <gid>1000</gid>
-    </group>
-</groups>
-    <name>[netdev]</name>
-        <gid>[117]</gid>
-    </group>
-    <group>
-        <name>[lxd]</name>
-        <gid>[118]</gid>
-    </group>
-    <group>
-        <name>[zefiro]</name>
-        <gid>[1000]</gid>
-    </group>
-</groups>
- <user></user>
-        </users>
-    </group>
-    <group>
-        <name>staff</name>
-        <gid>50</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>games</name>
-        <gid>60</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>users</name>
-        <gid>100</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>nogroup</name>
-        <gid>65534</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>systemd-journal</name>
-        <gid>101</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>systemd-network</name>
-        <gid>102</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>systemd-resolve</name>
-        <gid>103</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>systemd-timesync</name>
-        <gid>104</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>crontab</name>
-        <gid>105</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>messagebus</name>
-        <gid>106</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>input</name>
-        <gid>107</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>kvm</name>
-        <gid>108</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>render</name>
-        <gid>109</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>syslog</name>
-        <gid>110</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>tss</name>
-        <gid>111</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>uuidd</name>
-        <gid>112</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>tcpdump</name>
-        <gid>113</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>ssh</name>
-        <gid>114</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>landscape</name>
-        <gid>115</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>admin</name>
-        <gid>116</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
         <name>netdev</name>
         <gid>117</gid>
         <users>
-            <user></user>
+             <user>zefiro</user>
         </users>
     </group>
     <group>
         <name>lxd</name>
         <gid>118</gid>
-        <users>
-            <user></user>
-        </users>
     </group>
     <group>
         <name>zefiro</name>
         <gid>1000</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-</groups>
-p:x:113:</name>
-        <gid>tcpdump:x:113:</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>ssh:x:114:</name>
-        <gid>ssh:x:114:</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>landscape:x:115:</name>
-        <gid>landscape:x:115:</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>admin:x:116:</name>
-        <gid>admin:x:116:</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>netdev:x:117:zefiro</name>
-        <gid>netdev:x:117:zefiro</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>lxd:x:118:</name>
-        <gid>lxd:x:118:</gid>
-        <users>
-            <user></user>
-        </users>
-    </group>
-    <group>
-        <name>zefiro:x:1000:</name>
-        <gid>zefiro:x:1000:</gid>
-        <users>
-            <user></user>
-        </users>
     </group>
 </groups>

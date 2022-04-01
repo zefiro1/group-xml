@@ -23,7 +23,7 @@ import static java.io.File.separator;
  * Tiempo: 10
  * </li>
  * <li>
- * Version: 0.1
+ * Version: 0.2
  * </li>
  * <p>
  */
@@ -31,11 +31,18 @@ import static java.io.File.separator;
 public class GroupXMLConvertor {
 
     public static void main(String[] args) {
-        File archivoGroup = new File("src" + separator + "main" + separator + "java" + separator + "archivo" + separator + "group");
+        generandoXML();
+    }
+
+    private static void generandoXML() {
+        File archivoGroup = new File(
+                "src" + separator + "main" + separator + "java" + separator + "archivo" + separator + "group");
         RandomAccessFile leerContenidoGroup = null;
-        File archivoGroupXML = new File("src" + separator + "main" + separator + "java" + separator + "archivo" + separator + "group.xml");
+        File archivoGroupXML = new File(
+                "src" + separator + "main" + separator + "java" + separator + "archivo" + separator + "group.xml");
         RandomAccessFile crearVersionXML = null;
-        String[] contenidoFichero = null;
+        String[] contenidoFichero;
+        String[] contenidoFicheroUsuarios;
         try {
             leerContenidoGroup = new RandomAccessFile(archivoGroup, "r");
             crearVersionXML = new RandomAccessFile(archivoGroupXML, "rw");
@@ -43,8 +50,7 @@ public class GroupXMLConvertor {
             crearVersionXML.writeBytes("""
                     <groups>
                     """);
-
-            for (int i = 0; i < 58; i++) {
+            while (leerContenidoGroup.getFilePointer() < leerContenidoGroup.length()){
                 contenidoFichero = leerContenidoGroup.readLine().split(":");
                 crearVersionXML.writeBytes(String.format("""
                             <group>
@@ -53,14 +59,42 @@ public class GroupXMLConvertor {
                             </group>
                         """, contenidoFichero[0], contenidoFichero[2]
                 ));
+                if(contenidoFichero.length>3){
+                  contenidoFicheroUsuarios = contenidoFichero[3].replace("[","").replace("]","").split(",");
+                    System.out.println(Arrays.toString(new String[]{contenidoFicheroUsuarios[0]}));
+                  crearVersionXML.writeBytes(String.format("""
+                            <group>
+                                <name>%s</name>
+                                <gid>%s</gid>
+                                <users>
+                                     <user>%s</user>
+                                </users>
+                            </group>
+                        """, contenidoFichero[0], contenidoFichero[2],contenidoFicheroUsuarios[0]
+                    ));
+                  if(contenidoFicheroUsuarios.length>1){
+                      crearVersionXML.writeBytes(String.format("""
+                            <group>
+                                <name>%s</name>
+                                <gid>%s</gid>
+                                <users>
+                                     <user>%s</user>
+                                     <user>%s</user>
+                                </users>
+                            </group>
+                        """, contenidoFichero[0], contenidoFichero[2],contenidoFicheroUsuarios[0],contenidoFicheroUsuarios[1]
+                      ));
+                  }
+                }
             }
+
 
 
             crearVersionXML.writeBytes("""
                     </groups>
                     """);
 
-
+            System.out.println("Archivo creado "+archivoGroupXML.getCanonicalPath());
         } catch (
                 FileNotFoundException e) {
             System.err.println("La ruta del archivo especificado no se ha encontrado");
